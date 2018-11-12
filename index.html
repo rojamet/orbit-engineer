@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <title>Orbit Engineer</title>
+        <style>
+            label
+            {
+                display: inline-block;
+                text-align: right;
+                width: 200px;
+            }
+        </style>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body onload="a_changed()">
+        <h2>Reference body</h2>
+        <label for="R">Reference body radius</label>
+        <input type="number" id="R" oninput="R_changed()" min="1e-20" step="1e-20" value="600000">
+        <span>meters</span>
+        <br>
+        <label for="M">Reference body mass</label>
+        <input type="number" id="M" oninput="M_changed()" min="1e-20" step="1e-20" value="5.2915158e22">
+        <span>kg</span>
+        <br>
+
+        <h2>Orbital parameters</h2>
+        <span>Text-version time is given in kerbal units (1day = 6hours)</span>
+        <br><br>
+        <label for="Alt">Altitude (circular orbit)</label>
+        <input type="number" id="Alt" oninput="Alt_changed()" min="0" step="1e-20" value="100000">
+        <span>meters</span>
+        <span id="alt-warning" hidden>Warning: Altitude is lower than 0</span>
+        <br>
+        <label for="a">Semi-major axis</label>
+        <input type="number" id="a" oninput="a_changed()" min="1e-20" step="1e-20" value="700000">
+        <span>meters</span>
+        <br>
+        <label for="T">Orbital period</label>
+        <input type="number" id="T" oninput="T_changed()" min="1e-20" step="1e-20" value="-1">
+        <span>seconds</span>
+        <br>
+        <span id="verbose-T"></span>
+
+        <h2>Advanced parameters</h2>
+        <span>Apsides are given as altitudes from sea lever or equivalent like in KSP.</span>
+        <br>
+        <span>Use the radio buttons to select the constant value.</span>
+        <br>
+        <span>When modifying the selected constant value, the program assumes a is constant as well.</span>
+        <br>
+        <span>Apsides are automatically switched when necessary.</span>
+        <br><br>
+        <label for="e">Eccentricity</label>
+        <input type="number" id="e" oninput="e_changed()" min="0" step="1e-20" max="1" value="0">
+        <input type="radio" name="lock" id="e_lock" value="e_lock" checked>
+        <br>
+        <label for="Ap">Apoapsis altitude</label>
+        <input type="number" id="Ap" oninput="Ap_changed()" min="0" step="1e-20" value="100000">
+        <input type="radio" name="lock" id="Ap_lock" value="Ap_lock">
+        <span>meters</span>
+        <br>
+        <label for="Pe">Periapsis altitude</label>
+        <input type="number" id="Pe" oninput="Pe_changed()" min="0" step="1e-20" value="100000">
+        <input type="radio" name="lock" id="Pe_lock" value="Pe_lock">
+        <span>meters</span>
+        <span id = "apsis-warning" hidden>Warning: Your periapsis is lower than 0</span>
+        <br>
+        
+    </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "orbit-engineer",
+  "description": "",
+  "main": "main.js",
+  "license": "MIT",
+  "homepage": "https://example.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
