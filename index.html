@@ -13,8 +13,13 @@
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="main.js"></script>
     </head>
-    <body onload="a_changed()">
+    <body onload="init_page()">
         <h2>Reference body</h2>
+        <label for="select-body">Body preset</label>
+        <select id="select-body" onchange="objectsMenuChanged()">
+
+        </select>
+        <br>
         <label for="R">Reference body radius</label>
         <input type="number" id="R" oninput="R_changed()" min="1e-20" step="1e-20" value="600000">
         <span>meters</span>

@@ -51,6 +51,11 @@ const refObjects = [
         name: "Eeloo",
         mass: 1.1149224e21,
         radius: 210000
+    },
+    {
+        name: "Other",
+        mass: NaN,
+        radius: NaN
     }
 ];
 /**
@@ -182,12 +187,36 @@ var c_to_Ap = function(c, a, R)
 var generateObjectsMenu = function()
 {
     var e;
-    var res = "";
+    var opt;
     for(var i = 0; i < refObjects.length; i++)
     {
         e = refObjects[i];
-        
+        opt = new Option(e.name, e.name);
+        $(opt).html(e.name);
+        $("#select-body").append(opt);
     }
+}
+var objectsMenuChanged = function()
+{
+    var bodyName = String($("#select-body").val());
+    if(bodyName == "Other")
+        return;
+    var body = refObjects.find((e) => e.name == bodyName);
+    $("#R").val(rounder(body.radius));
+
+    var R = getVar("R");
+    var a = getVar("a");
+    var Alt = a - R;
+    compute_orbit(a, R);
+    $("#Alt").val(Alt);
+    check_altitude();
+
+    $("#M").val(rounder(body.mass));
+    
+    var M = getVar("M");
+    var T = a_to_T(a, M);
+    $("#T").val(T);
+    update_time();
 }
 var getLock = function()
 {
@@ -232,8 +261,7 @@ var R_changed = function()
     var R = getVar("R");
     var a = getVar("a");
     var Alt = a - R;
-    
-    var lock = getLock();
+    $("#select-body").val("Other")
     compute_orbit(a, R);
     $("#Alt").val(Alt);
     check_altitude();
@@ -243,6 +271,7 @@ var M_changed = function()
     var M = getVar("M");
     var a = getVar("a");
     var T = a_to_T(a, M);
+    $("#select-body").val("Other");
     $("#T").val(T);
     update_time();
 }
@@ -493,4 +522,10 @@ var update_time = function()
 {
     var T = getVar("T");
     $("#verbose-T").text(kerbal_Time(T));
+}
+var init_page = function()
+{
+    generateObjectsMenu();
+    $("#select-body").val("Kerbin");
+    a_changed();
 }
