@@ -1,18 +1,27 @@
-# orbit-engineer
-## Generalities
-This code aims to provide simplified calculation for orbits in a 2 bodies model with neglectible mass for orbiting object.
-It uses Kepler's laws and a few maths about ellipses.
-This has been created for the purpose of simplifying calculations for Kerbal Space Program, hence the preset values for reference body are from Kerbol System objects.
-It is no complete, check for updates once in a while for more features if you're interested.
-Once I'm satisfied with that and if other people are interested, I will put an online version somewhere and share the link for all players to use.
-It is licensed under the *WTFPL* so feel free to do whatever you want with that. A reference to this source is still appreciated though.
+# OrbitEngineer
 
-Add moar boosters and fly safe.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
 
-## Program structure
-The program uses bower to include the necessary libraries (which is only JQuery for now because I'm lazy).
-For now the only feature (orbit calculation) is directly on the index.html.
-main.js contains both the functions used to handle the page and the functions used for the calculations
-functions.js contains some functions I created to estimate the max distances between a constellation of sats and one object orbiting the same body
+## Development server
 
-I am aware this organization is not even an organization, I will split all of this properly someday.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
